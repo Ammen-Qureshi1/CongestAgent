@@ -1,0 +1,319 @@
+{
+ "name": "nsfnet",
+ "role": "train_and_test",
+ "source": "SNDlib sndlib_nobel-us.json via TopoHub commit 7a6cc7f6",
+ "n_nodes": 14,
+ "n_links": 21,
+ "nodes": [
+  {
+   "id": 0,
+   "name": "Palo-Alto",
+   "lon": -122.07,
+   "lat": 37.25,
+   "region": 0
+  },
+  {
+   "id": 1,
+   "name": "San-Diego",
+   "lon": -117.08,
+   "lat": 32.42,
+   "region": 0
+  },
+  {
+   "id": 2,
+   "name": "Boulder",
+   "lon": -105.16,
+   "lat": 40.0,
+   "region": 0
+  },
+  {
+   "id": 3,
+   "name": "Washington",
+   "lon": -77.02,
+   "lat": 38.52,
+   "region": 2
+  },
+  {
+   "id": 4,
+   "name": "Atlanta",
+   "lon": -84.23,
+   "lat": 33.44,
+   "region": 1
+  },
+  {
+   "id": 5,
+   "name": "Urbana-Champaign",
+   "lon": -88.14,
+   "lat": 40.06,
+   "region": 1
+  },
+  {
+   "id": 6,
+   "name": "Ann-Arbor",
+   "lon": -83.43,
+   "lat": 42.16,
+   "region": 1
+  },
+  {
+   "id": 7,
+   "name": "Lincoln",
+   "lon": -96.42,
+   "lat": 40.47,
+   "region": 1
+  },
+  {
+   "id": 8,
+   "name": "Princeton",
+   "lon": -74.39,
+   "lat": 40.21,
+   "region": 2
+  },
+  {
+   "id": 9,
+   "name": "Ithaca",
+   "lon": -76.3,
+   "lat": 42.26,
+   "region": 2
+  },
+  {
+   "id": 10,
+   "name": "Pittsburgh",
+   "lon": -79.58,
+   "lat": 40.26,
+   "region": 2
+  },
+  {
+   "id": 11,
+   "name": "Houston",
+   "lon": -95.21,
+   "lat": 29.45,
+   "region": 1
+  },
+  {
+   "id": 12,
+   "name": "Salt-Lake-City",
+   "lon": -111.55,
+   "lat": 40.39,
+   "region": 0
+  },
+  {
+   "id": 13,
+   "name": "Seattle",
+   "lon": -122.24,
+   "lat": 47.33,
+   "region": 0
+  }
+ ],
+ "links": [
+  {
+   "id": 0,
+   "a": 0,
+   "b": 1,
+   "dist_km": 704.13,
+   "delay_ms_geo": 3.521,
+   "delay_ms": 3.5,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 1,
+   "a": 0,
+   "b": 12,
+   "dist_km": 975.47,
+   "delay_ms_geo": 4.877,
+   "delay_ms": 4.9,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 2,
+   "a": 0,
+   "b": 13,
+   "dist_km": 1121.25,
+   "delay_ms_geo": 5.606,
+   "delay_ms": 5.6,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 3,
+   "a": 1,
+   "b": 11,
+   "dist_km": 2108.66,
+   "delay_ms_geo": 10.543,
+   "delay_ms": 10.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 4,
+   "a": 1,
+   "b": 13,
+   "dist_km": 1714.87,
+   "delay_ms_geo": 8.574,
+   "delay_ms": 8.6,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 5,
+   "a": 2,
+   "b": 7,
+   "dist_km": 743.65,
+   "delay_ms_geo": 3.718,
+   "delay_ms": 3.7,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 6,
+   "a": 2,
+   "b": 11,
+   "dist_km": 1482.54,
+   "delay_ms_geo": 7.413,
+   "delay_ms": 7.4,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 7,
+   "a": 2,
+   "b": 12,
+   "dist_km": 544.51,
+   "delay_ms_geo": 2.723,
+   "delay_ms": 2.7,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 8,
+   "a": 3,
+   "b": 8,
+   "dist_km": 294.05,
+   "delay_ms_geo": 1.47,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 9,
+   "a": 3,
+   "b": 9,
+   "dist_km": 420.43,
+   "delay_ms_geo": 2.102,
+   "delay_ms": 2.1,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 10,
+   "a": 3,
+   "b": 11,
+   "dist_km": 1952.11,
+   "delay_ms_geo": 9.761,
+   "delay_ms": 9.8,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 11,
+   "a": 4,
+   "b": 10,
+   "dist_km": 863.79,
+   "delay_ms_geo": 4.319,
+   "delay_ms": 4.3,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 12,
+   "a": 4,
+   "b": 11,
+   "dist_km": 1131.68,
+   "delay_ms_geo": 5.658,
+   "delay_ms": 5.7,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 13,
+   "a": 5,
+   "b": 7,
+   "dist_km": 703.96,
+   "delay_ms_geo": 3.52,
+   "delay_ms": 3.5,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 14,
+   "a": 5,
+   "b": 10,
+   "dist_km": 727.69,
+   "delay_ms_geo": 3.638,
+   "delay_ms": 3.6,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 15,
+   "a": 5,
+   "b": 13,
+   "dist_km": 2833.58,
+   "delay_ms_geo": 14.168,
+   "delay_ms": 10.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 16,
+   "a": 6,
+   "b": 8,
+   "dist_km": 786.74,
+   "delay_ms_geo": 3.934,
+   "delay_ms": 3.9,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 17,
+   "a": 6,
+   "b": 9,
+   "dist_km": 587.33,
+   "delay_ms_geo": 2.937,
+   "delay_ms": 2.9,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 18,
+   "a": 6,
+   "b": 12,
+   "dist_km": 2348.18,
+   "delay_ms_geo": 11.741,
+   "delay_ms": 10.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 19,
+   "a": 8,
+   "b": 10,
+   "dist_km": 440.66,
+   "delay_ms_geo": 2.203,
+   "delay_ms": 2.2,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 20,
+   "a": 9,
+   "b": 10,
+   "dist_km": 353.07,
+   "delay_ms_geo": 1.765,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  }
+ ]
+}

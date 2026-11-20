@@ -1,0 +1,81 @@
+88 RQ2 runs ({'central': 22, 'regional': 22, 'regional_nofast': 22, 'regional_v2': 22}), controller errors: 0
+
+=== geant: mean per controller ===
+policy                  central  regional  regional_nofast  regional_v2
+latency_ms_mean          43.448    53.128           52.042       48.093
+latency_ms_p95          103.567    98.637          105.281       97.639
+compute_ms_mean          19.448    23.128           22.042       18.093
+ctl_rtt_ms               24.000    30.000           30.000       30.000
+cpu_ms_per_interval      19.607    20.856           20.600       20.475
+longhaul_msgs_per_s      88.000     2.500           20.050        2.500
+local_msgs_per_s          0.000    88.000           88.000       88.000
+flowmods_per_s            6.188     9.595            9.565        6.928
+remote_flowmods_per_s     6.188     4.942            4.888        3.432
+route_changes_per_min    87.600   136.350          136.200       99.750
+maxrss_mb               633.555   667.155          668.666      635.207
+reroutes                103.000   184.250          167.000      128.250
+false_reroute_rate        0.000     0.000            0.000        0.000
+flag_recall_congestion    0.961     0.959            0.965        0.969
+path_delay_mean_ms       54.037    55.259           54.658       54.862
+path_delay_p95_ms       139.243   143.247          145.378      134.713
+tcp_throughput_mbps      17.584    17.563           17.582       17.581
+fct_p95_s                 2.592     3.186            3.198        2.885
+
+=== nsfnet: mean per controller ===
+policy                  central  regional  regional_nofast  regional_v2
+latency_ms_mean          55.294    52.719           51.498       44.582
+latency_ms_p95          130.685   109.145          110.615       91.753
+compute_ms_mean          25.694    29.919           28.698       21.782
+ctl_rtt_ms               29.600    22.800           22.800       22.800
+cpu_ms_per_interval      14.581    15.350           15.318       12.243
+longhaul_msgs_per_s      56.000     1.667           13.367        1.667
+local_msgs_per_s          0.000    56.000           56.000       56.000
+flowmods_per_s            7.202    10.683           10.768        8.847
+remote_flowmods_per_s     7.202     5.296            5.396        4.253
+route_changes_per_min   106.533   155.367          155.733      129.600
+maxrss_mb               580.015   596.384          599.058      595.821
+reroutes                142.833   238.389          227.389      194.611
+false_reroute_rate        0.063     0.075            0.065        0.079
+flag_recall_congestion    0.971     0.973            0.972        0.974
+path_delay_mean_ms       73.582    76.570           75.217       75.316
+path_delay_p95_ms       173.702   181.014          178.859      177.842
+tcp_throughput_mbps      17.898    17.870           17.817       17.852
+fct_p95_s                 4.482     5.095            4.914        4.865
+
+=== paired tests (matched by topology, load, noise, seed; Holm-corrected) ===
+                    compare                metric  n   mean_a   mean_b  rel_change     test      p  effect  p_holm  significant
+        regional vs central       latency_ms_mean 22  52.7932  53.1402     -0.0065 Wilcoxon 0.4434 -0.2727  1.0000        False
+        regional vs central        latency_ms_p95 22 107.2342 125.7546     -0.1473 paired t 0.0002 -0.9522  0.0049         True
+        regional vs central   cpu_ms_per_interval 22  16.3509  15.4952      0.0552 Wilcoxon 0.0000  1.0000  0.0000         True
+        regional vs central   longhaul_msgs_per_s 22   1.8182  61.8182     -0.9706 Wilcoxon 0.0000 -1.0000  0.0000         True
+        regional vs central remote_flowmods_per_s 22   5.2314   7.0177     -0.2546 Wilcoxon 0.0000 -0.8182  0.0001         True
+        regional vs central              reroutes 22 228.5455 135.5909      0.6856 paired t 0.0000  2.8681  0.0000         True
+        regional vs central    false_reroute_rate 22   0.0610   0.0518      0.1781 Wilcoxon 0.1361  0.5000  1.0000        False
+        regional vs central    path_delay_mean_ms 22  72.6950  70.0287      0.0381 paired t 0.0012  0.7953  0.0235         True
+        regional vs central   tcp_throughput_mbps 22  17.8139  17.8407     -0.0015 paired t 0.3462 -0.2055  1.0000        False
+regional vs regional_nofast       latency_ms_mean 22  52.7932  51.5967      0.0232 Wilcoxon 0.0229  0.4545  0.3896        False
+regional vs regional_nofast        latency_ms_p95 22 107.2342 109.6451     -0.0220 Wilcoxon 0.0501 -0.3636  0.7010        False
+regional vs regional_nofast   cpu_ms_per_interval 22  16.3509  16.2785      0.0045 Wilcoxon 0.3705  0.0000  1.0000        False
+regional vs regional_nofast   longhaul_msgs_per_s 22   1.8182  14.5818     -0.8753 Wilcoxon 0.0000 -1.0000  0.0000         True
+regional vs regional_nofast remote_flowmods_per_s 22   5.2314   5.3036     -0.0136 paired t 0.4578 -0.1613  1.0000        False
+regional vs regional_nofast              reroutes 22 228.5455 216.4091      0.0561 Wilcoxon 0.0008  0.8095  0.0166         True
+regional vs regional_nofast    false_reroute_rate 22   0.0610   0.0530      0.1515 Wilcoxon 0.2393  0.5000  1.0000        False
+regional vs regional_nofast    path_delay_mean_ms 22  72.6950  71.4788      0.0170 paired t 0.0790  0.3936  1.0000        False
+regional vs regional_nofast   tcp_throughput_mbps 22  17.8139  17.7740      0.0022 Wilcoxon 0.1465 -0.3636  1.0000        False
+     regional_v2 vs central       latency_ms_mean 22  45.2205  53.1402     -0.1490 Wilcoxon 0.0009 -0.6364  0.0188         True
+     regional_v2 vs central        latency_ms_p95 22  92.8229 125.7546     -0.2619 Wilcoxon 0.0000 -0.6364  0.0010         True
+     regional_v2 vs central   cpu_ms_per_interval 22  13.7395  15.4952     -0.1133 Wilcoxon 0.0003  0.9091  0.0056         True
+     regional_v2 vs central   longhaul_msgs_per_s 22   1.8182  61.8182     -0.9706 Wilcoxon 0.0000 -1.0000  0.0000         True
+     regional_v2 vs central remote_flowmods_per_s 22   4.1041   7.0177     -0.4152 paired t 0.0000 -1.8005  0.0000         True
+     regional_v2 vs central              reroutes 22 182.5455 135.5909      0.3463 paired t 0.0000  2.3296  0.0000         True
+     regional_v2 vs central    false_reroute_rate 22   0.0647   0.0518      0.2504 Wilcoxon 0.0414  0.3333  0.6208        False
+     regional_v2 vs central    path_delay_mean_ms 22  71.5975  70.0287      0.0224 paired t 0.0314  0.4916  0.5029        False
+     regional_v2 vs central   tcp_throughput_mbps 22  17.8024  17.8407     -0.0021 Wilcoxon 0.5446 -0.0909  1.0000        False
+    regional_v2 vs regional       latency_ms_mean 22  45.2205  52.7932     -0.1434 Wilcoxon 0.0000 -0.9091  0.0000         True
+    regional_v2 vs regional        latency_ms_p95 22  92.8229 107.2342     -0.1344 Wilcoxon 0.1870 -0.1818  1.0000        False
+    regional_v2 vs regional   cpu_ms_per_interval 22  13.7395  16.3509     -0.1597 Wilcoxon 0.0032 -0.5455  0.0583        False
+    regional_v2 vs regional remote_flowmods_per_s 22   4.1041   5.2314     -0.2155 Wilcoxon 0.0000 -1.0000  0.0000         True
+    regional_v2 vs regional              reroutes 22 182.5455 228.5455     -0.2013 Wilcoxon 0.0000 -1.0000  0.0000         True
+    regional_v2 vs regional    false_reroute_rate 22   0.0647   0.0610      0.0614 Wilcoxon 0.9375 -0.1667  1.0000        False
+    regional_v2 vs regional    path_delay_mean_ms 22  71.5975  72.6950     -0.0151 paired t 0.1292 -0.3367  1.0000        False
+    regional_v2 vs regional   tcp_throughput_mbps 22  17.8024  17.8139     -0.0006 Wilcoxon 0.2902  0.2727  1.0000        False

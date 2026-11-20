@@ -1,9 +1,9 @@
 """cg_calibrate.py - calibrate the flow-level simulator against the Mininet dataset, and report differences.
 
 Usage:
-    python cg_calibrate.py --data /content/work --out calib.json [--topo-dir ...]
+    python cg_calibrate.py --data data --out calib.json [--topo-dir ...]
 Needs in --data:  intervals_test_features.csv.gz (or train), flows_tcp_all.csv.gz
-Writes calib.json (used by cg_run.py via --calib) and calibration_report.md (sim vs Mininet table, for Step 11).
+Writes calib.json (used by cg_run.py via --calib) and calibration_report.md (simulator vs Mininet table).
 """
 import argparse, json, os
 import numpy as np, pandas as pd

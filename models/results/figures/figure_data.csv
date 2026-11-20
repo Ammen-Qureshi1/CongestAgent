@@ -1,0 +1,123 @@
+figure,metric,controller,mean,ci95,n
+fig1,false_reroute_rate,delay,0.10925564510259514,0.05471598479637961,30.0
+fig1,false_reroute_rate,delayloss,0.10919453233605769,0.02871969101581761,30.0
+fig1,false_reroute_rate,delayutil,0.04721031594163521,0.029669430994803753,30.0
+fig1,false_reroute_rate,model,0.04194021989545215,0.029286351343376205,30.0
+fig1,false_reroute_rate,model_robust,0.003933923443630334,0.003344196237019007,30.0
+fig1,reroutes_on_degradation,delay,24.366666666666667,14.147858246816083,30.0
+fig1,reroutes_on_degradation,delayloss,38.166666666666664,11.374295494196735,30.0
+fig1,reroutes_on_degradation,delayutil,6.933333333333334,4.883345511556403,30.0
+fig1,reroutes_on_degradation,model,5.9,4.337312634503455,30.0
+fig1,reroutes_on_degradation,model_robust,0.5,0.4573272509406291,30.0
+fig2,false_reroute_rate[loss2],delay,0.0,0.0,
+fig2,false_reroute_rate[jitter40],delay,0.06043438135285125,0.028211734918001764,
+fig2,false_reroute_rate[shift40],delay,0.10660816635720388,0.027860891579630384,
+fig2,false_reroute_rate[shift80],delay,0.3792356778029205,0.06739385983198339,
+fig2,false_reroute_rate[loss2],delayloss,0.0835348250001469,0.016648912010108294,
+fig2,false_reroute_rate[jitter40],delayloss,0.0953279183991154,0.02665700810619112,
+fig2,false_reroute_rate[shift40],delayloss,0.14797509991263896,0.03226778084448298,
+fig2,false_reroute_rate[shift80],delayloss,0.21913481836838722,0.030234576449025587,
+fig2,false_reroute_rate[loss2],delayutil,0.0,0.0,
+fig2,false_reroute_rate[jitter40],delayutil,0.0090593469871507,0.007593291759594616,
+fig2,false_reroute_rate[shift40],delayutil,0.0292599564477339,0.01633026600104606,
+fig2,false_reroute_rate[shift80],delayutil,0.19773227627329146,0.04265314684910051,
+fig2,false_reroute_rate[loss2],model,0.0,0.0,
+fig2,false_reroute_rate[jitter40],model,0.0071446540880503,0.011739822986446912,
+fig2,false_reroute_rate[shift40],model,0.0093290011322798,0.014669734725495103,
+fig2,false_reroute_rate[shift80],model,0.1932274442569306,0.03219284523121409,
+fig2,false_reroute_rate[loss2],model_robust,0.0,0.0,
+fig2,false_reroute_rate[jitter40],model_robust,0.0045254128253820166,0.005894931204585388,
+fig2,false_reroute_rate[shift40],model_robust,0.0014880952380952335,0.0038252705902004935,
+fig2,false_reroute_rate[shift80],model_robust,0.013656109154674417,0.016993223863759344,
+fig3,flag_rate_degradation,delay,0.25423803409477824,0.18573489580910674,24.0
+fig3,flag_rate_degradation,delayloss,0.31123901911291624,0.1726775603461849,24.0
+fig3,flag_rate_degradation,delayutil,0.02442063898754489,0.01856737060839765,24.0
+fig3,flag_rate_degradation,model,0.022283130515294153,0.017009521706209597,24.0
+fig3,flag_rate_degradation,model_robust,0.0011557640278595167,0.0006618671305425447,24.0
+fig3,flag_recall_congestion,delay,0.9968594415788591,0.0016102976449577555,30.0
+fig3,flag_recall_congestion,delayloss,0.9972881974864609,0.0011183406524330585,30.0
+fig3,flag_recall_congestion,delayutil,0.9613538856702724,0.011170109359842167,30.0
+fig3,flag_recall_congestion,model,0.9670500263304714,0.010318010519153122,30.0
+fig3,flag_recall_congestion,model_robust,0.9661782639560031,0.007944169866892007,30.0
+fig4,path_delay_mean_ms,none,71.51389495433384,5.727165658218554,30.0
+fig4,path_delay_mean_ms,delay,64.8177841241055,5.429343925838578,30.0
+fig4,path_delay_mean_ms,delayloss,68.2778943147929,5.763463134849411,30.0
+fig4,path_delay_mean_ms,delayutil,65.8421703066139,5.71218776379582,30.0
+fig4,path_delay_mean_ms,model,65.60097673749108,5.370664225080998,30.0
+fig4,path_delay_mean_ms,model_robust,66.87288662414109,5.721304545247692,30.0
+fig4,tcp_throughput_mbps,none,17.473762722666667,1.8082083809151597,30.0
+fig4,tcp_throughput_mbps,delay,17.478242298666665,1.8091442069245764,30.0
+fig4,tcp_throughput_mbps,delayloss,17.409951389333333,1.7506700939063078,30.0
+fig4,tcp_throughput_mbps,delayutil,17.535857895999996,1.841224941223821,30.0
+fig4,tcp_throughput_mbps,model,17.507150746666664,1.829879215411023,30.0
+fig4,tcp_throughput_mbps,model_robust,17.496487096000003,1.80811522426901,30.0
+fig4,fct_p95_s,none,5.014287153911666,1.109974832920349,30.0
+fig4,fct_p95_s,delay,4.861418016323333,0.9708474799774364,30.0
+fig4,fct_p95_s,delayloss,5.417672099336664,1.0853352287879698,30.0
+fig4,fct_p95_s,delayutil,4.237950291639999,0.8078254261518333,30.0
+fig4,fct_p95_s,model,4.452104039341665,0.8759068222795574,30.0
+fig4,fct_p95_s,model_robust,4.323929292638332,0.7919670536536951,30.0
+fig5,latency_ms_mean,central,53.14024886363636,7.999073678698307,22.0
+fig5,latency_ms_mean,regional,52.79317954545456,9.191230406022363,22.0
+fig5,latency_ms_mean,regional_nofast,51.59672613636364,8.516203548890129,22.0
+fig5,latency_ms_mean,regional_v2,45.22050000000001,2.619105012395486,22.0
+fig5,latency_ms_p95,central,125.75456818181806,29.189111338634227,22.0
+fig5,latency_ms_p95,regional,107.23420454545455,28.411553625113577,22.0
+fig5,latency_ms_p95,regional_nofast,109.6451136363636,29.346918348495322,22.0
+fig5,latency_ms_p95,regional_v2,92.82290909090908,1.9679996656219658,22.0
+fig5,longhaul_msgs_per_s,central,61.81818181818182,5.601013228259325,22.0
+fig5,longhaul_msgs_per_s,regional,1.818181818181818,0.14585971948591997,22.0
+fig5,longhaul_msgs_per_s,regional_nofast,14.581818181818186,1.1697949502770786,22.0
+fig5,longhaul_msgs_per_s,regional_v2,1.818181818181818,0.14585971948591997,22.0
+fig5,reroutes,central,135.5909090909091,30.179817604952053,22.0
+fig5,reroutes,regional,228.54545454545453,36.6618107521309,22.0
+fig5,reroutes,regional_nofast,216.4090909090909,37.94165982645821,22.0
+fig5,reroutes,regional_v2,182.54545454545453,32.69135120983697,22.0
+fig6,jain_cubic_vs_bbr,none,0.7678424664685839,0.016516579080005603,30.0
+fig6,jain_cubic_vs_bbr,delay,0.7874294062088353,0.01515008362321095,30.0
+fig6,jain_cubic_vs_bbr,delayloss,0.7838041209595467,0.01164682155373178,30.0
+fig6,jain_cubic_vs_bbr,delayutil,0.792130686495424,0.018868870743616005,29.0
+fig6,jain_cubic_vs_bbr,model,0.783463424986455,0.025540698381314435,30.0
+fig6,jain_cubic_vs_bbr,model_robust,0.7841894811403592,0.016544084321742897,30.0
+fig6,bbr_over_cubic,none,3.291370344963133,0.48998534703742525,30.0
+fig6,bbr_over_cubic,delay,3.290252435927656,1.0572853894164616,30.0
+fig6,bbr_over_cubic,delayloss,2.992888917483177,0.4289509576075841,30.0
+fig6,bbr_over_cubic,delayutil,2.6956383140402966,0.6511871944714641,29.0
+fig6,bbr_over_cubic,model,3.0636134112785545,0.7759463400998958,30.0
+fig6,bbr_over_cubic,model_robust,3.4653106005885297,1.0520956016299976,30.0
+fig7,false_cong[test/loss0.5],Delay rule,0.0,,
+fig7,false_cong[test/loss1],Delay rule,0.0,,
+fig7,false_cong[test/loss2],Delay rule,0.0,,
+fig7,false_cong[test/jitter5],Delay rule,0.0,,
+fig7,false_cong[test/jitter10],Delay rule,0.0,,
+fig7,false_cong[test/jitter20],Delay rule,0.0,,
+fig7,false_cong[test/jitter40],Delay rule,0.003964456596035544,,
+fig7,false_cong[test/shift40],Delay rule,0.007651841224294596,,
+fig7,false_cong[test/shift80],Delay rule,1.0,,
+fig7,false_cong[test/loss0.5],Delay+loss rule,0.03675410781204958,,
+fig7,false_cong[test/loss1],Delay+loss rule,0.052180797466532314,,
+fig7,false_cong[test/loss2],Delay+loss rule,0.04560672569005282,,
+fig7,false_cong[test/jitter5],Delay+loss rule,0.049230069028294014,,
+fig7,false_cong[test/jitter10],Delay+loss rule,0.03908527015918093,,
+fig7,false_cong[test/jitter20],Delay+loss rule,0.02826799937529283,,
+fig7,false_cong[test/jitter40],Delay+loss rule,0.04948735475051264,,
+fig7,false_cong[test/shift40],Delay+loss rule,0.08974972102662203,,
+fig7,false_cong[test/shift80],Delay+loss rule,1.0,,
+fig7,false_cong[test/loss0.5],Delay+util rule,0.0,,
+fig7,false_cong[test/loss1],Delay+util rule,0.0,,
+fig7,false_cong[test/loss2],Delay+util rule,0.0,,
+fig7,false_cong[test/jitter5],Delay+util rule,0.0,,
+fig7,false_cong[test/jitter10],Delay+util rule,0.0,,
+fig7,false_cong[test/jitter20],Delay+util rule,0.0,,
+fig7,false_cong[test/jitter40],Delay+util rule,0.0004101161995898838,,
+fig7,false_cong[test/shift40],Delay+util rule,0.003028853817949944,,
+fig7,false_cong[test/shift80],Delay+util rule,0.05459770114942529,,
+fig7,false_cong[test/loss0.5],CA (gated),0.0,,
+fig7,false_cong[test/loss1],CA (gated),0.0,,
+fig7,false_cong[test/loss2],CA (gated),0.0,,
+fig7,false_cong[test/jitter5],CA (gated),0.0,,
+fig7,false_cong[test/jitter10],CA (gated),0.0,,
+fig7,false_cong[test/jitter20],CA (gated),0.00015617679212868969,,
+fig7,false_cong[test/jitter40],CA (gated),0.0004101161995898838,,
+fig7,false_cong[test/shift40],CA (gated),0.0009564801530368245,,
+fig7,false_cong[test/shift80],CA (gated),0.05459770114942529,,

@@ -1,4 +1,4 @@
-"""cg_sim.py - flow-level simulator for CongestAgent (Steps 5b/5c/6 support).
+"""cg_sim.py - flow-level simulator for CongestAgent.
 
 What it simulates (every 250 ms interval, per directed link, 10 Mbps, 150 kB queue):
   * traffic: UDP ON/OFF + TCP (CUBIC / BBR) aggregates, optional bursts and a link failure

@@ -2,11 +2,11 @@
 
 Stages (run in this order, or --stage all):
   train      train the PPO / DQN agents in the flow-level simulator
-  core       Step 7: 18 NSFNET configs x seeds x {CongestAgent, B1, B2, B3}
-  variations Step 7/11: one-factor-at-a-time (all-CUBIC, burst, failure, GEANT, unseen noise)
-  ablation   Step 10: A1-A5 on 6 configs x 5 seeds
-  stress     Step 11: delayed neighbour summaries (1-2 intervals)
-  analyze    Step 9: means + 95% CI, paired tests (Shapiro -> t / Wilcoxon), Holm, effect sizes, report.md
+  core       18 NSFNET configs x seeds x {CongestAgent, B1, B2, B3}
+  variations one-factor-at-a-time (all-CUBIC, burst, failure, GEANT, unseen noise)
+  ablation   A1-A5 on 6 configs x 5 seeds
+  stress     delayed neighbour summaries (1-2 intervals)
+  analyze    means + 95% CI, paired tests (Shapiro -> t / Wilcoxon), Holm, effect sizes, report.md
 """
 import argparse, os, time, json, math, resource, warnings
 import numpy as np
@@ -33,7 +33,7 @@ METHODS = {
     "B2": dict(algo="dqn", scope="central", labels=False, clf=None, mode="none", fast=False, period=1,
                lam_rc=0.02, lam_deg=0.0),                        # central DQN, raw measurements
     "B3": dict(algo="dqn", scope="central", labels=True, clf="symptom", mode="merged", fast=False, period=1,
-               lam_rc=0.02, lam_deg=0.0),                        # two-agent design of [1]
+               lam_rc=0.02, lam_deg=0.0),                        # two-agent design of Boussaoud et al. (2025)
 }
 TRAINED = [m for m in METHODS if m != "B1"]
 
@@ -322,7 +322,7 @@ def stage_stress(a, models, topos, calib, cms, clf_ms, outd):
               os.path.join(outd, f"stress_delay{d}.csv"), summary_delay=d, duration=a.duration)
 
 
-# ----------------------------------------------------------------------------- statistics (Step 9)
+# ----------------------------------------------------------------------------- statistics
 def ci95(x):
     x = np.asarray(x, float)
     x = x[~np.isnan(x)]

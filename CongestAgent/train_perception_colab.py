@@ -1,18 +1,16 @@
-"""CongestAgent perception agent - GOOGLE COLAB version.
-
-Same method as the laptop version, but the defaults fit Colab (about 12 GB RAM, 2 CPU cores):
+"""CongestAgent perception model (LightGBM), defaults sized for about 12 GB RAM and 2 CPU cores:
   * keeps ALL normal rows (--normal-keep 1.0)
   * reads 200,000 rows at a time
   * uses every CPU core
   * can run all three feature sets one after another with --featureset all
 
 Quick test:
-    python train_perception_colab.py --data . --out /content/test_quick --featureset full --quick
-Real run (all three feature sets, results saved into Google Drive):
-    python train_perception_colab.py --data . --out /content/drive/MyDrive/congestagent/results --featureset all
+    python train_perception_colab.py --data . --out results_quick --featureset full --quick
+Full run (all feature sets):
+    python train_perception_colab.py --data . --out results --featureset all
 
 Feature sets: full (base + long-window) | nolong (base only) | symptom (delay and loss only)
-              robust (full minus raw delay-level features; made AFTER seeing the shift80 errors on test)
+              robust (full minus raw delay-level features; added after the delay-shift errors seen on the test split)
 """
 import argparse, gc, json, os, time
 import numpy as np, pandas as pd, lightgbm as lgb
@@ -35,7 +33,7 @@ CARRY = 5000   # rows kept from the previous piece so rolling windows stay corre
 
 def add_long(df):
     """Rolling means over 5 s (20 intervals) and 10 s (40 intervals), per run and per link direction.
-    NOTE: approximates train_long.py. Replace when the original file is available."""
+    Computed piece by piece; the windows follow long_features.py."""
     df = df.sort_values(GROUP + ["meta_k"]).reset_index(drop=True)
     tx = df["f_tx_pps"].replace(0, np.nan)
     b = pd.DataFrame({
@@ -84,7 +82,7 @@ def stream(path, fs, quick, chunk, handle):
         df = ch if carry is None else pd.concat([carry, ch], ignore_index=True)
         carry = df.tail(CARRY).copy()
         carry["_new"] = False
-        df["f_util"] = df["f_util"].clip(upper=1.0)     # README: late port-counter reads
+        df["f_util"] = df["f_util"].clip(upper=1.0)     # late port-counter reads (see docs/README_DATASET.md)
         long_cols = []
         if fs in ("full", "robust", "notrend"):
             df, long_cols = add_long(df)
@@ -154,7 +152,7 @@ def evaluate(name, model, feats, folder, fs, quick, chunk, threads, results):
     stream(os.path.join(folder, FILES[name]), fs, quick, chunk, h)
     y, p = np.concatenate(ys), np.concatenate(ps)
     results[name] = report(name, y, p)
-    if extra:                                   # breakdown by scenario (Step 11)
+    if extra:                                   # breakdown by scenario
         e = pd.concat(extra, ignore_index=True)
         for col in [c for c in EXTRA_META if c in e.columns]:
             results[f"stress_by_{col}"] = {

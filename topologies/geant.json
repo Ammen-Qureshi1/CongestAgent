@@ -1,0 +1,525 @@
+{
+ "name": "geant",
+ "role": "test_only",
+ "source": "SNDlib sndlib_geant.json via TopoHub commit 7a6cc7f6",
+ "n_nodes": 22,
+ "n_links": 36,
+ "nodes": [
+  {
+   "id": 0,
+   "name": "at1.at",
+   "lon": 16.37,
+   "lat": 48.21,
+   "region": 2
+  },
+  {
+   "id": 1,
+   "name": "be1.be",
+   "lon": 4.35,
+   "lat": 50.85,
+   "region": 0
+  },
+  {
+   "id": 2,
+   "name": "ch1.ch",
+   "lon": 6.14,
+   "lat": 46.2,
+   "region": 1
+  },
+  {
+   "id": 3,
+   "name": "cz1.cz",
+   "lon": 14.44,
+   "lat": 50.08,
+   "region": 1
+  },
+  {
+   "id": 4,
+   "name": "de1.de",
+   "lon": 8.68,
+   "lat": 50.11,
+   "region": 1
+  },
+  {
+   "id": 5,
+   "name": "es1.es",
+   "lon": -3.7,
+   "lat": 40.42,
+   "region": 0
+  },
+  {
+   "id": 6,
+   "name": "fr1.fr",
+   "lon": 2.35,
+   "lat": 48.86,
+   "region": 0
+  },
+  {
+   "id": 7,
+   "name": "gr1.gr",
+   "lon": 23.58,
+   "lat": 37.98,
+   "region": 2
+  },
+  {
+   "id": 8,
+   "name": "hr1.hr",
+   "lon": 15.96,
+   "lat": 45.81,
+   "region": 1
+  },
+  {
+   "id": 9,
+   "name": "hu1.hu",
+   "lon": 19.09,
+   "lat": 47.5,
+   "region": 2
+  },
+  {
+   "id": 10,
+   "name": "ie1.ie",
+   "lon": -6.26,
+   "lat": 53.34,
+   "region": 0
+  },
+  {
+   "id": 11,
+   "name": "il1.il",
+   "lon": 34.81,
+   "lat": 32.07,
+   "region": 2
+  },
+  {
+   "id": 12,
+   "name": "it1.it",
+   "lon": 9.19,
+   "lat": 45.46,
+   "region": 1
+  },
+  {
+   "id": 13,
+   "name": "lu1.lu",
+   "lon": 6.13,
+   "lat": 49.61,
+   "region": 1
+  },
+  {
+   "id": 14,
+   "name": "nl1.nl",
+   "lon": 4.94,
+   "lat": 52.32,
+   "region": 0
+  },
+  {
+   "id": 15,
+   "name": "ny1.ny",
+   "lon": -73.94,
+   "lat": 40.67,
+   "region": 0
+  },
+  {
+   "id": 16,
+   "name": "pl1.pl",
+   "lon": 16.89,
+   "lat": 52.4,
+   "region": 2
+  },
+  {
+   "id": 17,
+   "name": "pt1.pt",
+   "lon": -9.14,
+   "lat": 38.71,
+   "region": 0
+  },
+  {
+   "id": 18,
+   "name": "se1.se",
+   "lon": 17.87,
+   "lat": 59.36,
+   "region": 2
+  },
+  {
+   "id": 19,
+   "name": "si1.si",
+   "lon": 14.51,
+   "lat": 46.06,
+   "region": 1
+  },
+  {
+   "id": 20,
+   "name": "sk1.sk",
+   "lon": 17.13,
+   "lat": 48.15,
+   "region": 2
+  },
+  {
+   "id": 21,
+   "name": "uk1.uk",
+   "lon": -0.13,
+   "lat": 51.51,
+   "region": 0
+  }
+ ],
+ "links": [
+  {
+   "id": 0,
+   "a": 0,
+   "b": 2,
+   "dist_km": 804.05,
+   "delay_ms_geo": 4.02,
+   "delay_ms": 4.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 1,
+   "a": 0,
+   "b": 4,
+   "dist_km": 597.61,
+   "delay_ms_geo": 2.988,
+   "delay_ms": 3.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 2,
+   "a": 0,
+   "b": 9,
+   "dist_km": 217.92,
+   "delay_ms_geo": 1.09,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 3,
+   "a": 0,
+   "b": 15,
+   "dist_km": 6797.25,
+   "delay_ms_geo": 33.986,
+   "delay_ms": 10.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 4,
+   "a": 0,
+   "b": 19,
+   "dist_km": 277.55,
+   "delay_ms_geo": 1.388,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 5,
+   "a": 1,
+   "b": 6,
+   "dist_km": 263.79,
+   "delay_ms_geo": 1.319,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 6,
+   "a": 1,
+   "b": 13,
+   "dist_km": 186.78,
+   "delay_ms_geo": 0.934,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 7,
+   "a": 1,
+   "b": 14,
+   "dist_km": 169.21,
+   "delay_ms_geo": 0.846,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 8,
+   "a": 2,
+   "b": 6,
+   "dist_km": 409.81,
+   "delay_ms_geo": 2.049,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 9,
+   "a": 2,
+   "b": 12,
+   "dist_km": 250.26,
+   "delay_ms_geo": 1.251,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 10,
+   "a": 3,
+   "b": 4,
+   "dist_km": 410.77,
+   "delay_ms_geo": 2.054,
+   "delay_ms": 2.1,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 11,
+   "a": 3,
+   "b": 16,
+   "dist_km": 308.92,
+   "delay_ms_geo": 1.545,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 12,
+   "a": 3,
+   "b": 20,
+   "dist_km": 290.03,
+   "delay_ms_geo": 1.45,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 13,
+   "a": 4,
+   "b": 6,
+   "dist_km": 478.29,
+   "delay_ms_geo": 2.391,
+   "delay_ms": 2.4,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 14,
+   "a": 4,
+   "b": 7,
+   "dist_km": 1793.29,
+   "delay_ms_geo": 8.966,
+   "delay_ms": 9.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 15,
+   "a": 4,
+   "b": 10,
+   "dist_km": 1087.81,
+   "delay_ms_geo": 5.439,
+   "delay_ms": 5.4,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 16,
+   "a": 4,
+   "b": 12,
+   "dist_km": 518.36,
+   "delay_ms_geo": 2.592,
+   "delay_ms": 2.6,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 17,
+   "a": 4,
+   "b": 14,
+   "dist_km": 358.41,
+   "delay_ms_geo": 1.792,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 18,
+   "a": 4,
+   "b": 18,
+   "dist_km": 1183.58,
+   "delay_ms_geo": 5.918,
+   "delay_ms": 5.9,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 19,
+   "a": 5,
+   "b": 6,
+   "dist_km": 1053.14,
+   "delay_ms_geo": 5.266,
+   "delay_ms": 5.3,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 20,
+   "a": 5,
+   "b": 12,
+   "dist_km": 1188.53,
+   "delay_ms_geo": 5.943,
+   "delay_ms": 5.9,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 21,
+   "a": 5,
+   "b": 17,
+   "dist_km": 503.06,
+   "delay_ms_geo": 2.515,
+   "delay_ms": 2.5,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 22,
+   "a": 6,
+   "b": 13,
+   "dist_km": 286.94,
+   "delay_ms_geo": 1.435,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 23,
+   "a": 6,
+   "b": 21,
+   "dist_km": 343.67,
+   "delay_ms_geo": 1.718,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 24,
+   "a": 7,
+   "b": 12,
+   "dist_km": 1452.75,
+   "delay_ms_geo": 7.264,
+   "delay_ms": 7.3,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 25,
+   "a": 8,
+   "b": 9,
+   "dist_km": 303.98,
+   "delay_ms_geo": 1.52,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 26,
+   "a": 8,
+   "b": 19,
+   "dist_km": 115.54,
+   "delay_ms_geo": 0.578,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 27,
+   "a": 9,
+   "b": 20,
+   "dist_km": 163.77,
+   "delay_ms_geo": 0.819,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 28,
+   "a": 10,
+   "b": 21,
+   "dist_km": 462.91,
+   "delay_ms_geo": 2.315,
+   "delay_ms": 2.3,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 29,
+   "a": 11,
+   "b": 12,
+   "dist_km": 2656.42,
+   "delay_ms_geo": 13.282,
+   "delay_ms": 10.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 30,
+   "a": 11,
+   "b": 14,
+   "dist_km": 3293.78,
+   "delay_ms_geo": 16.469,
+   "delay_ms": 10.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 31,
+   "a": 14,
+   "b": 21,
+   "dist_km": 359.17,
+   "delay_ms_geo": 1.796,
+   "delay_ms": 2.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 32,
+   "a": 15,
+   "b": 21,
+   "dist_km": 5570.76,
+   "delay_ms_geo": 27.854,
+   "delay_ms": 10.0,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 33,
+   "a": 16,
+   "b": 18,
+   "dist_km": 777.16,
+   "delay_ms_geo": 3.886,
+   "delay_ms": 3.9,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 34,
+   "a": 17,
+   "b": 21,
+   "dist_km": 1587.03,
+   "delay_ms_geo": 7.935,
+   "delay_ms": 7.9,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  },
+  {
+   "id": 35,
+   "a": 18,
+   "b": 21,
+   "dist_km": 1425.22,
+   "delay_ms_geo": 7.126,
+   "delay_ms": 7.1,
+   "capacity_mbps": 10.0,
+   "queue_packets": 100
+  }
+ ]
+}

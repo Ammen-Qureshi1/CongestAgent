@@ -1,8 +1,8 @@
-"""cg_plots.py - all figures for the report (bars with 95% confidence intervals).
+"""cg_plots.py - figures for the simulator results (bars with 95% confidence intervals).
 
 Usage:
-    python cg_plots.py --workdir /content/drive/MyDrive/CongestAgent/cg_out \
-                       --results-dir /content/drive/MyDrive/CongestAgent/results
+    python cg_plots.py --workdir cg_out \
+                       --results-dir results
 Reads  <workdir>/results/*.csv  (core, variations, ablation, stress_delay1/2)  and  <results-dir>/*/metrics.json
 Writes <workdir>/figures/*.png
 """

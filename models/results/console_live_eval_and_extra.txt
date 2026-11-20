@@ -1,0 +1,153 @@
+268 live runs
+
+=== mean per controller (all configurations) ===
+policy                    central    delay  delayloss  delayutil    model  model_robust     none  regional  regional_nofast  regional_v2
+reroutes                  135.591  191.567    350.267    132.700  128.967       128.567    0.000   228.545          216.409      182.545
+false_reroute_rate          0.052    0.109      0.109      0.047    0.042         0.004      NaN     0.061            0.053        0.065
+unnecessary_reroute_rate    0.801    0.900      0.938      0.803    0.797         0.800      NaN     0.728            0.708        0.683
+route_changes_per_min     103.091  134.840    220.100     99.580   97.420        96.860    0.000   151.909          152.182      124.173
+flag_recall_congestion      0.969    0.997      0.997      0.961    0.967         0.966    0.000     0.971            0.970        0.974
+flag_rate_degradation       0.043    0.254      0.311      0.024    0.022         0.001    0.000     0.043            0.045        0.044
+tcp_throughput_mbps        17.841   17.478     17.410     17.536   17.507        17.496   17.474    17.814           17.774       17.802
+tcp_completion              0.999    0.999      0.998      0.999    0.999         0.999    0.998     0.999            0.999        0.998
+fct_median_s                0.579    0.594      0.685      0.573    0.571         0.581    0.556     0.618            0.603        0.601
+fct_p95_s                   4.139    4.861      5.418      4.238    4.452         4.324    5.014     4.748            4.602        4.505
+path_delay_mean_ms         70.029   64.818     68.278     65.842   65.601        66.873   71.514    72.695           71.479       71.598
+path_delay_p95_ms         167.437  158.370    166.405    157.180  158.071       159.988  157.370   174.147          172.772      170.001
+udp_loss                    0.010    0.013      0.015      0.011    0.011         0.011    0.012     0.013            0.012        0.012
+decision_ms_mean           15.484   16.195     16.202     16.168   17.472        12.685   15.621    16.193           16.011       13.514
+decision_ms_p95            18.650   20.850     20.271     20.269   23.346        14.411   19.247    19.134           18.840       15.442
+flowmods_per_s              7.018    9.359     15.955      6.694    6.534         6.497    0.000    10.485           10.550        8.498
+
+=== false reroute rate by noise ===
+policy    central  delay  delayloss  delayutil  model  model_robust  regional  regional_nofast  regional_v2
+noise                                                                                                      
+jitter40      NaN  0.060      0.095      0.009  0.007         0.005       NaN              NaN          NaN
+loss2         NaN  0.000      0.084      0.000  0.000         0.000       NaN              NaN          NaN
+none        0.000  0.000      0.000      0.000  0.000         0.000     0.000            0.000        0.000
+shift40     0.007  0.107      0.148      0.029  0.009         0.001     0.038            0.007        0.023
+shift80     0.182  0.379      0.219      0.198  0.193         0.014     0.185            0.188        0.214
+
+=== reroutes by noise ===
+policy    central  delay  delayloss  delayutil  model  model_robust  none  regional  regional_nofast  regional_v2
+noise                                                                                                            
+jitter40      NaN  132.2      252.5       94.2   95.0          99.3   0.0       NaN              NaN          NaN
+loss2         NaN  171.7      353.2      134.3  130.2         136.7   0.0       NaN              NaN          NaN
+none        136.6  216.0      381.7      163.3  160.3         168.0   0.0     232.8            216.6        179.7
+shift40     122.7  174.8      372.3      121.5  117.0         118.0   0.0     206.8            199.8        171.5
+shift80     146.8  263.2      391.7      150.2  142.3         120.8   0.0     243.2            232.7        198.3
+
+=== paired tests: model vs baselines (Holm-corrected) ===
+  controller  baseline                   metric  n  model_mean  base_mean     test      p  effect  p_holm  significant
+       model      none                 reroutes 30    128.9667     0.0000 paired t 0.0000  1.9382  0.0000         True
+       model      none      tcp_throughput_mbps 30     17.5072    17.4738 paired t 0.3491  0.1738  1.0000        False
+       model      none       path_delay_mean_ms 30     65.6010    71.5139 paired t 0.0000 -0.8752  0.0021         True
+       model      none        path_delay_p95_ms 30    158.0712   157.3705 paired t 0.8535  0.0340  1.0000        False
+       model      none                fct_p95_s 30      4.4521     5.0143 paired t 0.1103 -0.3008  1.0000        False
+       model     delay                 reroutes 30    128.9667   191.5667 Wilcoxon 0.0000 -1.0000  0.0000         True
+       model     delay       false_reroute_rate 30      0.0419     0.1093 Wilcoxon 0.0002 -1.0000  0.0088         True
+       model     delay unnecessary_reroute_rate 30      0.7968     0.8995 paired t 0.0000 -1.6549  0.0000         True
+       model     delay      tcp_throughput_mbps 30     17.5072    17.4782 Wilcoxon 0.8394 -0.1333  1.0000        False
+       model     delay       path_delay_mean_ms 30     65.6010    64.8178 Wilcoxon 0.8553 -0.1333  1.0000        False
+       model     delay        path_delay_p95_ms 30    158.0712   158.3696 Wilcoxon 0.5978 -0.0667  1.0000        False
+       model     delay                fct_p95_s 30      4.4521     4.8614 Wilcoxon 0.0606 -0.2667  1.0000        False
+       model delayloss                 reroutes 30    128.9667   350.2667 paired t 0.0000 -5.0171  0.0000         True
+       model delayloss       false_reroute_rate 30      0.0419     0.1092 paired t 0.0000 -1.2004  0.0000         True
+       model delayloss unnecessary_reroute_rate 30      0.7968     0.9375 paired t 0.0000 -1.9688  0.0000         True
+       model delayloss      tcp_throughput_mbps 30     17.5072    17.4100 Wilcoxon 0.1981  0.0000  1.0000        False
+       model delayloss       path_delay_mean_ms 30     65.6010    68.2779 paired t 0.0016 -0.6354  0.0642        False
+       model delayloss        path_delay_p95_ms 30    158.0712   166.4052 paired t 0.0060 -0.5415  0.2275        False
+       model delayloss                fct_p95_s 30      4.4521     5.4177 Wilcoxon 0.0007 -0.4667  0.0314         True
+       model delayutil                 reroutes 30    128.9667   132.7000 paired t 0.0286 -0.4205  1.0000        False
+       model delayutil       false_reroute_rate 30      0.0419     0.0472 Wilcoxon 0.0468 -0.3333  1.0000        False
+       model delayutil unnecessary_reroute_rate 30      0.7968     0.8026 paired t 0.5062 -0.1229  1.0000        False
+       model delayutil      tcp_throughput_mbps 30     17.5072    17.5359 Wilcoxon 0.9032  0.0000  1.0000        False
+       model delayutil       path_delay_mean_ms 30     65.6010    65.8422 paired t 0.6901 -0.0735  1.0000        False
+       model delayutil        path_delay_p95_ms 30    158.0712   157.1798 paired t 0.5756  0.1034  1.0000        False
+       model delayutil                fct_p95_s 30      4.4521     4.2380 Wilcoxon 0.1094  0.2667  1.0000        False
+model_robust      none                 reroutes 30    128.5667     0.0000 Wilcoxon 0.0000  1.0000  0.0000         True
+model_robust      none      tcp_throughput_mbps 30     17.4965    17.4738 Wilcoxon 0.8078 -0.1333  1.0000        False
+model_robust      none       path_delay_mean_ms 30     66.8729    71.5139 paired t 0.0013 -0.6505  0.0529        False
+model_robust      none        path_delay_p95_ms 30    159.9879   157.3705 paired t 0.5517  0.1100  1.0000        False
+model_robust      none                fct_p95_s 30      4.3239     5.0143 Wilcoxon 0.0523 -0.2000  1.0000        False
+model_robust     delay                 reroutes 30    128.5667   191.5667 Wilcoxon 0.0000 -1.0000  0.0000         True
+model_robust     delay       false_reroute_rate 30      0.0039     0.1093 Wilcoxon 0.0002 -1.0000  0.0088         True
+model_robust     delay unnecessary_reroute_rate 30      0.8004     0.8995 paired t 0.0000 -1.8465  0.0000         True
+model_robust     delay      tcp_throughput_mbps 30     17.4965    17.4782 Wilcoxon 0.8712 -0.2000  1.0000        False
+model_robust     delay       path_delay_mean_ms 30     66.8729    64.8178 Wilcoxon 0.0667  0.2667  1.0000        False
+model_robust     delay        path_delay_p95_ms 30    159.9879   158.3696 paired t 0.6211  0.0912  1.0000        False
+model_robust     delay                fct_p95_s 30      4.3239     4.8614 Wilcoxon 0.0248 -0.3333  0.9171        False
+model_robust delayloss                 reroutes 30    128.5667   350.2667 paired t 0.0000 -4.5865  0.0000         True
+model_robust delayloss       false_reroute_rate 30      0.0039     0.1092 paired t 0.0000 -1.4359  0.0000         True
+model_robust delayloss unnecessary_reroute_rate 30      0.8004     0.9375 paired t 0.0000 -2.0094  0.0000         True
+model_robust delayloss      tcp_throughput_mbps 30     17.4965    17.4100 Wilcoxon 0.2367  0.0667  1.0000        False
+model_robust delayloss       path_delay_mean_ms 30     66.8729    68.2779 paired t 0.0892 -0.3211  1.0000        False
+model_robust delayloss        path_delay_p95_ms 30    159.9879   166.4052 paired t 0.0639 -0.3517  1.0000        False
+model_robust delayloss                fct_p95_s 30      4.3239     5.4177 Wilcoxon 0.0001 -0.6667  0.0046         True
+model_robust delayutil                 reroutes 30    128.5667   132.7000 Wilcoxon 0.4944  0.0714  1.0000        False
+model_robust delayutil       false_reroute_rate 30      0.0039     0.0472 Wilcoxon 0.0008 -0.8750  0.0326         True
+model_robust delayutil unnecessary_reroute_rate 30      0.8004     0.8026 paired t 0.8096 -0.0444  1.0000        False
+model_robust delayutil      tcp_throughput_mbps 30     17.4965    17.5359 Wilcoxon 0.5291 -0.0667  1.0000        False
+model_robust delayutil       path_delay_mean_ms 30     66.8729    65.8422 paired t 0.0477  0.3776  1.0000        False
+model_robust delayutil        path_delay_p95_ms 30    159.9879   157.1798 paired t 0.2136  0.2322  1.0000        False
+model_robust delayutil                fct_p95_s 30      4.3239     4.2380 paired t 0.4266  0.1472  1.0000        False
+model_robust     model                 reroutes 30    128.5667   128.9667 paired t 0.8900 -0.0255  1.0000        False
+model_robust     model       false_reroute_rate 30      0.0039     0.0419 Wilcoxon 0.0058 -0.6923  0.2251        False
+model_robust     model unnecessary_reroute_rate 30      0.8004     0.7968 paired t 0.7176  0.0667  1.0000        False
+model_robust     model      tcp_throughput_mbps 30     17.4965    17.5072 Wilcoxon 0.9838 -0.0667  1.0000        False
+model_robust     model       path_delay_mean_ms 30     66.8729    65.6010 paired t 0.0338  0.4068  1.0000        False
+model_robust     model        path_delay_p95_ms 30    159.9879   158.0712 paired t 0.4474  0.1406  1.0000        False
+model_robust     model                fct_p95_s 30      4.3239     4.4521 Wilcoxon 0.9677  0.1333  1.0000        False
+
+268 live runs
+
+=== A1) label of the link that triggered each reroute (mean count per run) ===
+policy                   central  delay  delayloss  delayutil  model  model_robust  none  regional  regional_nofast  regional_v2
+reroutes                   135.6  191.6      350.3      132.7  129.0         128.6   0.0     228.5            216.4        182.5
+reroutes_on_congestion      27.9   22.0       24.7       26.4   26.5          27.0   0.0      64.4             65.3         60.5
+reroutes_on_degradation      7.6   24.4       38.2        6.9    5.9           0.5   0.0      14.5             12.3         12.4
+reroutes_on_normal           0.0    0.0      169.4        0.0    0.0           2.1   0.0      48.6              0.0         15.6
+reroutes_on_uncertain      100.1  145.2      118.0       99.4   96.6          99.0   0.0     101.0            138.8         94.1
+
+share of reroutes by trigger label (sum over runs):
+policy                   central  delay  delayloss  delayutil  model  model_robust  none  regional  regional_nofast  regional_v2
+reroutes_on_congestion     0.206  0.115      0.071      0.199  0.205         0.210   NaN     0.282            0.302        0.331
+reroutes_on_degradation    0.056  0.127      0.109      0.052  0.046         0.004   NaN     0.063            0.057        0.068
+reroutes_on_normal         0.000  0.000      0.484      0.000  0.000         0.016   NaN     0.213            0.000        0.085
+reroutes_on_uncertain      0.738  0.758      0.337      0.749  0.749         0.770   NaN     0.442            0.641        0.515
+
+=== B) RQ3 under control: CUBIC-vs-BBR fairness on busy shared links (mean [95% CI], unit = run) ===
+controller   runs        Jain CUBIC-vs-BBR       BBR/CUBIC (median)  shared link-seconds
+none           30    0.768 [0.751,0.784]    3.291 [2.801,3.781]                   87
+delay          30    0.787 [0.772,0.803]    3.290 [2.233,4.348]                  106
+delayloss      30    0.784 [0.772,0.795]    2.993 [2.564,3.422]                  134
+delayutil      29    0.792 [0.773,0.811]    2.696 [2.044,3.347]                   89
+model          30    0.783 [0.758,0.809]    3.064 [2.288,3.840]                   89
+
+=== paired tests: model vs baselines (Holm over these tests only) ===
+ baseline                  metric  n  model_mean  base_mean     test      p  effect  p_holm  significant
+     none  flag_recall_congestion 30      0.9671     0.0000 Wilcoxon 0.0000  1.0000  0.0000         True
+    delay reroutes_on_degradation 30      5.9000    24.3667 Wilcoxon 0.0002 -1.0000  0.0022         True
+    delay      false_reroute_rate 30      0.0419     0.1093 Wilcoxon 0.0002 -1.0000  0.0022         True
+    delay   flag_rate_degradation 24      0.0223     0.2542 Wilcoxon 0.0002 -1.0000  0.0022         True
+    delay  flag_recall_congestion 30      0.9671     0.9969 Wilcoxon 0.0000 -0.9333  0.0000         True
+delayloss reroutes_on_degradation 30      5.9000    38.1667 paired t 0.0000 -1.4226  0.0000         True
+delayloss      false_reroute_rate 30      0.0419     0.1092 paired t 0.0000 -1.2004  0.0000         True
+delayloss   flag_rate_degradation 24      0.0223     0.3112 Wilcoxon 0.0000 -1.0000  0.0000         True
+delayloss  flag_recall_congestion 30      0.9671     0.9973 Wilcoxon 0.0000 -0.9333  0.0000         True
+delayutil reroutes_on_degradation 30      5.9000     6.9333 Wilcoxon 0.0374 -0.4667  0.2994        False
+delayutil      false_reroute_rate 30      0.0419     0.0472 Wilcoxon 0.0468 -0.3333  0.3278        False
+delayutil   flag_rate_degradation 24      0.0223     0.0244 Wilcoxon 0.2461 -0.1765  1.0000        False
+delayutil  flag_recall_congestion 30      0.9671     0.9614 paired t 0.0746  0.3377  0.4476        False
+     none   rq3_jain_cubic_vs_bbr 30      0.7835     0.7678 paired t 0.2041  0.2372  1.0000        False
+    delay   rq3_jain_cubic_vs_bbr 30      0.7835     0.7874 Wilcoxon 0.5425 -0.2000  1.0000        False
+delayloss   rq3_jain_cubic_vs_bbr 30      0.7835     0.7838 paired t 0.9806 -0.0045  1.0000        False
+delayutil   rq3_jain_cubic_vs_bbr 29      0.7841     0.7921 paired t 0.4840 -0.1317  1.0000        False
+
+fig1_rq1_false_reroutes: RQ1, live: false reroutes per controller (mean, 95% CI, 30 runs each)
+fig2_rq1_false_reroutes_by_noise: RQ1, live: false-reroute rate by noise type (6 runs per bar)
+fig3_rq1_detection: RQ1, live: detection trade-off of each controller
+fig4_rq1_performance: RQ1, live: delay, throughput and flow completion time per controller
+fig5_rq2_regional_vs_central: RQ2, live: regional agents vs one central agent (22 matched runs each, NSFNET + GEANT)
+fig6_rq3_fairness: RQ3, live: fairness between CUBIC and BBR under each controller
+fig7_offline_false_congestion: Offline (NSFNET test split): share of noisy intervals called congestion, by noise type

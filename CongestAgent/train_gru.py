@@ -1,17 +1,17 @@
-"""train_gru.py - small GRU perception model + comparison with LightGBM (Step 5a of the proposal).
+"""train_gru.py - small GRU perception model + comparison with LightGBM.
 
-The proposal says: "compare gradient-boosted decision trees with a small GRU and keep the better one".
+Compares gradient-boosted decision trees with a small GRU on the same features and splits.
 This script trains a GRU on windows of 8 intervals (2 s) of the SAME features as the LightGBM model, tests it
 on the same splits, and writes perception_comparison.md with a recommendation.
 
 Needs train_perception_colab.py in the same folder (it reuses its feature code).
 
 Quick test:
-    python train_gru.py --data /content/work --out /content/gru_quick --featureset robust --quick
-Real run (use a GPU runtime in Colab if you can: Runtime > Change runtime type > T4 GPU; CPU also works):
-    python train_gru.py --data /content/work --out /content/drive/MyDrive/CongestAgent/results/gru_robust \
-        --featureset robust --compare /content/drive/MyDrive/CongestAgent/results/robust \
-                                      /content/drive/MyDrive/CongestAgent/results/full
+    python train_gru.py --data data --out gru_quick --featureset robust --quick
+Full run (a GPU helps; CPU also works):
+    python train_gru.py --data data --out results/gru_robust \
+        --featureset robust --compare results/robust \
+                                      results/full
 """
 import argparse, gc, json, os, time
 import numpy as np, pandas as pd
@@ -19,7 +19,7 @@ import torch, torch.nn as nn
 from sklearn.metrics import f1_score
 import train_perception_colab as T
 
-W = 8   # window length in intervals (2 s), as in the proposal
+W = 8   # window length in intervals (2 s)
 
 
 # ----------------------------------------------------------------------------- data
@@ -171,7 +171,7 @@ def compare(out_dir, my_name, my_results, others):
                    f"{gru.degradation_called_congestion_pct:.2f}% vs {best.degradation_called_congestion_pct:.2f}%. "
                    "Prefer the model with fewer needless-reroute errors, or keep LightGBM for lower cost.")
     cols = list(df.columns)
-    md = "# Perception model comparison (Step 5a)\n\n| " + " | ".join(cols) + " |\n|" + "---|" * len(cols) + "\n"
+    md = "# Perception model comparison\n\n| " + " | ".join(cols) + " |\n|" + "---|" * len(cols) + "\n"
     for _, r in df.iterrows():
         md += "| " + " | ".join(str(v) for v in r.values) + " |\n"
     md += f"\n**Decision rule:** keep the model with the higher mean macro F1 on the three held-out splits; if the " \
