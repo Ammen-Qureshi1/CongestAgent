@@ -1,0 +1,13 @@
+{
+  "tcp_sigma": 1.4,
+  "tcp_rho": 0.9,
+  "udp_mean_on": 4.0,
+  "m_cubic": 1.1361292008419699,
+  "m_bbr": 0.8,
+  "k_cubic_loss": 10.0,
+  "k_bbr_loss": 1.5,
+  "transient_gain": 0.5,
+  "transient_intervals": 4,
+  "cubic_jitter_k": 0.003,
+  "bbr_jitter_k": 0.0008
+}

@@ -1,0 +1,162 @@
+{
+  "featureset": "symptom",
+  "n_features": 27,
+  "best_iteration": 117,
+  "val": {
+    "macro_f1": 0.8882696211922091,
+    "per_class_f1": {
+      "normal": 0.9522155358565194,
+      "degradation": 0.7135909998185447,
+      "congestion": 0.9990023279015631
+    },
+    "per_class_precision": {
+      "normal": 0.9694410527743861,
+      "degradation": 0.6449951616342195,
+      "congestion": 0.9980066445182725
+    },
+    "per_class_recall": {
+      "normal": 0.9355914752810527,
+      "degradation": 0.7985136754045767,
+      "congestion": 1.0
+    },
+    "confusion_matrix(rows=true, cols=pred)": [
+      [
+        314413,
+        21645,
+        0
+      ],
+      [
+        9911,
+        39326,
+        12
+      ],
+      [
+        0,
+        0,
+        6008
+      ]
+    ],
+    "n": 391315
+  },
+  "test": {
+    "macro_f1": 0.8021773413944352,
+    "per_class_f1": {
+      "normal": 0.9560838386521174,
+      "degradation": 0.6729273249702151,
+      "congestion": 0.7775208605609731
+    },
+    "per_class_precision": {
+      "normal": 0.9688756664301181,
+      "degradation": 0.6377765969560102,
+      "congestion": 0.6360546082570316
+    },
+    "per_class_recall": {
+      "normal": 0.9436253841575707,
+      "degradation": 0.7121786857106529,
+      "congestion": 0.9999138079641441
+    },
+    "confusion_matrix(rows=true, cols=pred)": [
+      [
+        638958,
+        38173,
+        0
+      ],
+      [
+        20526,
+        67214,
+        6638
+      ],
+      [
+        0,
+        1,
+        11601
+      ]
+    ],
+    "n": 783111
+  },
+  "test_geant": {
+    "macro_f1": 0.8477947988187712,
+    "per_class_f1": {
+      "normal": 0.9376358617366207,
+      "degradation": 0.6057485347196927,
+      "congestion": 1.0
+    },
+    "per_class_precision": {
+      "normal": 0.9621777936643169,
+      "degradation": 0.5216362262429246,
+      "congestion": 1.0
+    },
+    "per_class_recall": {
+      "normal": 0.9143147555553286,
+      "degradation": 0.7222013857359996,
+      "congestion": 1.0
+    },
+    "confusion_matrix(rows=true, cols=pred)": [
+      [
+        358010,
+        33551,
+        0
+      ],
+      [
+        14073,
+        36586,
+        0
+      ],
+      [
+        0,
+        0,
+        6149
+      ]
+    ],
+    "n": 448369
+  },
+  "test_stress": {
+    "macro_f1": 0.8774560248335286,
+    "per_class_f1": {
+      "normal": 0.9437495882624204,
+      "degradation": 0.6886703185089372,
+      "congestion": 0.9999481677292282
+    },
+    "per_class_precision": {
+      "normal": 0.951784358390281,
+      "degradation": 0.6579252919320594,
+      "congestion": 1.0
+    },
+    "per_class_recall": {
+      "normal": 0.9358493383354798,
+      "degradation": 0.7224296512157363,
+      "congestion": 0.9998963408313465
+    },
+    "confusion_matrix(rows=true, cols=pred)": [
+      [
+        300840,
+        20622,
+        0
+      ],
+      [
+        15240,
+        39665,
+        0
+      ],
+      [
+        0,
+        1,
+        9646
+      ]
+    ],
+    "n": 386014
+  },
+  "stress_by_meta_event": {
+    "bursts": 0.8855992551584214,
+    "linkfail": 0.8721203816210893,
+    "none": 0.8749543747342572
+  },
+  "stress_by_meta_transport": {
+    "cubic": 0.8749543747342572,
+    "mixed": 0.8786743006218121
+  },
+  "stress_by_meta_noise": {
+    "jitter10": 0.9730823052881825,
+    "loss1": 0.7794309758963597
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "featureset": "robust",
+  "n_features": 52,
+  "best_iteration": 207,
+  "val": {
+    "macro_f1": 0.9070567856139614,
+    "per_class_f1": {
+      "normal": 0.966949750084597,
+      "degradation": 0.778975090971231,
+      "congestion": 0.9752455157860563
+    },
+    "per_class_precision": {
+      "normal": 0.9688113296033982,
+      "degradation": 0.7713455298309876,
+      "congestion": 0.9516869950894978
+    },
+    "per_class_recall": {
+      "normal": 0.9650953109284707,
+      "degradation": 0.7867570915145485,
+      "congestion": 1.0
+    },
+    "confusion_matrix(rows=true, cols=pred)": [
+      [
+        324328,
+        11486,
+        244
+      ],
+      [
+        10441,
+        38747,
+        61
+      ],
+      [
+        0,
+        0,
+        6008
+      ]
+    ],
+    "n": 391315
+  },
+  "test": {
+    "macro_f1": 0.8948421852164641,
+    "per_class_f1": {
+      "normal": 0.9637873306051304,
+      "degradation": 0.7484563424640504,
+      "congestion": 0.9722828825802117
+    },
+    "per_class_precision": {
+      "normal": 0.9672999311248663,
+      "degradation": 0.7321779669605757,
+      "congestion": 0.9480753480753481
+    },
+    "per_class_recall": {
+      "normal": 0.9603001487156843,
+      "degradation": 0.7654750047680604,
+      "congestion": 0.9977590070677469
+    },
+    "confusion_matrix(rows=true, cols=pred)": [
+      [
+        650249,
+        26414,
+        468
+      ],
+      [
+        21968,
+        72244,
+        166
+      ],
+      [
+        14,
+        12,
+        11576
+      ]
+    ],
+    "n": 783111
+  },
+  "test_geant": {
+    "macro_f1": 0.8904554264791971,
+    "per_class_f1": {
+      "normal": 0.9594095073393608,
+      "degradation": 0.7394402421850624,
+      "congestion": 0.9725165299131682
+    },
+    "per_class_precision": {
+      "normal": 0.9818841451514155,
+      "degradation": 0.6454481215404546,
+      "congestion": 0.9531542785758901
+    },
+    "per_class_recall": {
+      "normal": 0.9379407040026969,
+      "degradation": 0.865473065003257,
+      "congestion": 0.9926817368677834
+    },
+    "confusion_matrix(rows=true, cols=pred)": [
+      [
+        367261,
+        24053,
+        247
+      ],
+      [
+        6762,
+        43844,
+        53
+      ],
+      [
+        14,
+        31,
+        6104
+      ]
+    ],
+    "n": 448369
+  },
+  "test_stress": {
+    "macro_f1": 0.9202466727303423,
+    "per_class_f1": {
+      "normal": 0.9666143363998869,
+      "degradation": 0.817336709563287,
+      "congestion": 0.9767889722278532
+    },
+    "per_class_precision": {
+      "normal": 0.9757192933525187,
+      "degradation": 0.7800897187598285,
+      "congestion": 0.9555775904809123
+    },
+    "per_class_recall": {
+      "normal": 0.9576777348489091,
+      "degradation": 0.8583189144886623,
+      "congestion": 0.9989634083134653
+    },
+    "confusion_matrix(rows=true, cols=pred)": [
+      [
+        307857,
+        13283,
+        322
+      ],
+      [
+        7653,
+        47126,
+        126
+      ],
+      [
+        8,
+        2,
+        9637
+      ]
+    ],
+    "n": 386014
+  },
+  "stress_by_meta_event": {
+    "bursts": 0.91776955767044,
+    "linkfail": 0.9265991059922968,
+    "none": 0.916416386485797
+  },
+  "stress_by_meta_transport": {
+    "cubic": 0.916416386485797,
+    "mixed": 0.9221648315723395
+  },
+  "stress_by_meta_noise": {
+    "jitter10": 0.9758884827591151,
+    "loss1": 0.8663903152115213
+  }
+}

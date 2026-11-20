@@ -1,0 +1,242 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795148738.447505   31111 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+I0000 00:00:1795148738.519886   31111 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795148741.172876   31111 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+topologies: {'nsfnet': ('nsfnet(builtin)', 14, 21), 'geant': ('geant(SYNTHETIC stand-in, 22 nodes 36 links)', 22, 36)}
+[train] CongestAgent exists, skipping
+[train] A1 exists, skipping
+[train] A2 exists, skipping
+[train] A3 exists, skipping
+[train] A4 exists, skipping
+[train] A5 exists, skipping
+[train] B2 exists, skipping
+[train] B3 exists, skipping
+classifier latency per interval: 1.916 ms
+[core] 20/180 scenarios
+[core] 40/180 scenarios
+[core] 60/180 scenarios
+[core] 80/180 scenarios
+[core] 100/180 scenarios
+[core] 120/180 scenarios
+[core] 140/180 scenarios
+[core] 160/180 scenarios
+[core] 180/180 scenarios
+[variation] 20/160 scenarios
+[variation] 40/160 scenarios
+[variation] 60/160 scenarios
+[variation] 80/160 scenarios
+[variation] 100/160 scenarios
+[variation] 120/160 scenarios
+[variation] 140/160 scenarios
+[variation] 160/160 scenarios
+[ablation] 20/30 scenarios
+[ablation] 30/30 scenarios
+[summary_delay1] 20/30 scenarios
+[summary_delay1] 30/30 scenarios
+[summary_delay2] 20/30 scenarios
+[summary_delay2] 30/30 scenarios
+# CongestAgent - results (flow-level simulator)
+
+## Core experiment (18 NSFNET configurations, pooled, mean ± 95% CI)
+
+| method | delay_mean_ms | delay_p95_ms | loss_pct | throughput_mbps | jain | false_reroute_rate | route_changes_per_min | decision_latency_ms | msgs_per_s_central | msgs_per_s_max_regional | cpu_ms_per_sim_s | n |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| B1 | 25.410 ± 1.451 | 87.115 ± 8.839 | 5.630 ± 0.693 | 25.248 ± 1.652 | 0.975 ± 0.004 | 0.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | 224.000 ± 0.000 | 224.000 ± 0.000 | 0.000 ± 0.000 | 180 |
+| B2 | 24.712 ± 1.031 | 72.287 ± 6.086 | 6.504 ± 0.803 | 23.109 ± 1.359 | 0.972 ± 0.004 | 0.245 ± 0.024 | 411.170 ± 57.504 | 0.321 ± 0.007 | 305.791 ± 8.656 | 305.791 ± 8.656 | 1.285 ± 0.027 | 180 |
+| B3 | 22.322 ± 0.996 | 66.397 ± 6.135 | 6.215 ± 0.770 | 23.329 ± 1.391 | 0.973 ± 0.004 | 0.207 ± 0.017 | 338.723 ± 45.868 | 2.949 ± 0.006 | 313.873 ± 6.786 | 313.873 ± 6.786 | 11.796 ± 0.026 | 180 |
+| CongestAgent | 28.122 ± 1.700 | 95.472 ± 10.344 | 7.511 ± 0.921 | 23.219 ± 1.366 | 0.966 ± 0.005 | 0.223 ± 0.019 | 204.443 ± 27.438 | 2.705 ± 0.002 | 14.549 ± 0.989 | 70.445 ± 0.397 | 11.497 ± 0.024 | 180 |
+
+
+## Core: per configuration
+
+(saved in core_per_config.csv)
+
+
+## Paired tests, CongestAgent vs baselines (Holm-corrected)
+
+| other | metric | ref_mean | other_mean | test | p_holm | effect_name | effect | significant_0.05 |
+|---|---|---|---|---|---|---|---|---|
+| B1 | delay_mean_ms | 28.12 | 25.41 | Wilcoxon | 2.867e-13 | rank-biserial | 0.6511 | True |
+| B1 | delay_p95_ms | 95.47 | 87.11 | Wilcoxon | 0.0003858 | rank-biserial | 0.3479 | True |
+| B1 | loss_pct | 7.511 | 5.63 | Wilcoxon | 5.042e-19 | rank-biserial | 0.7932 | True |
+| B1 | throughput_mbps | 23.22 | 25.25 | Wilcoxon | 8.93e-30 | rank-biserial | -0.9999 | True |
+| B1 | jain | 0.966 | 0.9753 | Wilcoxon | 7.79e-27 | rank-biserial | -0.9419 | True |
+| B1 | false_reroute_rate | 0.2227 | 0 | Wilcoxon | 2.748e-25 | rank-biserial | 1 | True |
+| B1 | route_changes_per_min | 204.4 | 0 | Wilcoxon | 8.93e-30 | rank-biserial | 1 | True |
+| B1 | decision_latency_ms | 2.705 | 0 | Wilcoxon | 8.93e-30 | rank-biserial | 1 | True |
+| B1 | msgs_per_s_central | 14.55 | 224 | Wilcoxon | 8.93e-30 | rank-biserial | -1 | True |
+| B1 | msgs_per_s_max_regional | 70.44 | 224 | Wilcoxon | 8.93e-30 | rank-biserial | -1 | True |
+| B1 | cpu_ms_per_sim_s | 11.5 | 0 | Wilcoxon | 8.93e-30 | rank-biserial | 1 | True |
+| B2 | delay_mean_ms | 28.12 | 24.71 | Wilcoxon | 1.437e-12 | rank-biserial | 0.6313 | True |
+| B2 | delay_p95_ms | 95.47 | 72.29 | Wilcoxon | 4.31e-11 | rank-biserial | 0.5891 | True |
+| B2 | loss_pct | 7.511 | 6.504 | Wilcoxon | 3.528e-25 | rank-biserial | 0.9181 | True |
+| B2 | throughput_mbps | 23.22 | 23.11 | Wilcoxon | 0.0002532 | rank-biserial | 0.3483 | True |
+| B2 | jain | 0.966 | 0.972 | Wilcoxon | 1.048e-27 | rank-biserial | -0.9585 | True |
+| B2 | false_reroute_rate | 0.2227 | 0.245 | Wilcoxon | 0.02183 | rank-biserial | -0.2526 | True |
+| B2 | route_changes_per_min | 204.4 | 411.2 | Wilcoxon | 1.358e-29 | rank-biserial | -0.9933 | True |
+| B2 | decision_latency_ms | 2.705 | 0.3213 | Wilcoxon | 8.93e-30 | rank-biserial | 1 | True |
+| B2 | msgs_per_s_central | 14.55 | 305.8 | Wilcoxon | 8.93e-30 | rank-biserial | -1 | True |
+| B2 | msgs_per_s_max_regional | 70.44 | 305.8 | Wilcoxon | 8.93e-30 | rank-biserial | -1 | True |
+| B2 | cpu_ms_per_sim_s | 11.5 | 1.285 | Wilcoxon | 8.93e-30 | rank-biserial | 1 | True |
+| B3 | delay_mean_ms | 28.12 | 22.32 | Wilcoxon | 6.941e-27 | rank-biserial | 0.9434 | True |
+| B3 | delay_p95_ms | 95.47 | 66.4 | Wilcoxon | 1.347e-19 | rank-biserial | 0.8042 | True |
+| B3 | loss_pct | 7.511 | 6.215 | Wilcoxon | 1.906e-28 | rank-biserial | 0.9806 | True |
+| B3 | throughput_mbps | 23.22 | 23.33 | Wilcoxon | 0.1803 | rank-biserial | -0.1152 | False |
+| B3 | jain | 0.966 | 0.9728 | Wilcoxon | 4.146e-29 | rank-biserial | -0.9844 | True |
+| B3 | false_reroute_rate | 0.2227 | 0.207 | Wilcoxon | 0.0872 | rank-biserial | 0.1899 | False |
+| B3 | route_changes_per_min | 204.4 | 338.7 | Wilcoxon | 6.839e-28 | rank-biserial | -0.9622 | True |
+| B3 | decision_latency_ms | 2.705 | 2.949 | Wilcoxon | 8.93e-30 | rank-biserial | -1 | True |
+| B3 | msgs_per_s_central | 14.55 | 313.9 | Wilcoxon | 8.93e-30 | rank-biserial | -1 | True |
+| B3 | msgs_per_s_max_regional | 70.44 | 313.9 | Wilcoxon | 8.93e-30 | rank-biserial | -1 | True |
+| B3 | cpu_ms_per_sim_s | 11.5 | 11.8 | Wilcoxon | 4.146e-29 | rank-biserial | -0.9847 | True |
+
+
+## One-factor-at-a-time variations (load 90%, base noise loss1 / jitter10)
+
+| variation | method | delay_p95_ms | throughput_mbps | false_reroute_rate | route_changes_per_min | jain | n |
+|---|---|---|---|---|---|---|---|
+| burst | B1 | 184.461 ± 17.471 | 37.860 ± 3.700 | 0.000 ± 0.000 | 0.000 ± 0.000 | 0.960 ± 0.015 | 20 |
+| burst | B2 | 156.053 ± 10.194 | 31.988 ± 2.618 | 0.248 ± 0.019 | 1181.040 ± 164.852 | 0.952 ± 0.016 | 20 |
+| burst | B3 | 148.873 ± 9.350 | 32.736 ± 2.760 | 0.230 ± 0.019 | 984.780 ± 130.096 | 0.953 ± 0.016 | 20 |
+| burst | CongestAgent | 206.111 ± 16.399 | 32.458 ± 2.730 | 0.236 ± 0.021 | 514.470 ± 60.698 | 0.942 ± 0.017 | 20 |
+| cubic | B1 | 141.875 ± 22.743 | 36.333 ± 3.659 | 0.000 ± 0.000 | 0.000 ± 0.000 | nan ± nan | 20 |
+| cubic | B2 | 116.744 ± 12.509 | 32.171 ± 2.673 | 0.233 ± 0.017 | 830.400 ± 181.011 | nan ± nan | 20 |
+| cubic | B3 | 110.877 ± 12.442 | 32.647 ± 2.800 | 0.222 ± 0.018 | 682.680 ± 141.849 | nan ± nan | 20 |
+| cubic | CongestAgent | 167.328 ± 19.904 | 32.254 ± 2.718 | 0.227 ± 0.020 | 397.650 ± 81.983 | nan ± nan | 20 |
+| failure | B1 | 148.743 ± 23.311 | 36.328 ± 3.684 | 0.000 ± 0.000 | 0.000 ± 0.000 | 0.958 ± 0.015 | 20 |
+| failure | B2 | 122.714 ± 12.725 | 32.309 ± 2.677 | 0.230 ± 0.018 | 856.320 ± 184.295 | 0.954 ± 0.015 | 20 |
+| failure | B3 | 116.768 ± 12.176 | 32.838 ± 2.833 | 0.226 ± 0.019 | 696.960 ± 139.789 | 0.955 ± 0.016 | 20 |
+| failure | CongestAgent | 175.641 ± 21.882 | 32.675 ± 2.767 | 0.229 ± 0.020 | 385.110 ± 73.061 | 0.944 ± 0.017 | 20 |
+| geant | B1 | 154.864 ± 11.878 | 45.460 ± 2.758 | 0.000 ± 0.000 | 0.000 ± 0.000 | 0.958 ± 0.011 | 20 |
+| geant | B2 | 129.038 ± 10.288 | 41.708 ± 2.494 | 0.291 ± 0.020 | 832.080 ± 119.855 | 0.957 ± 0.010 | 20 |
+| geant | B3 | 125.449 ± 11.136 | 42.391 ± 2.562 | 0.275 ± 0.024 | 670.740 ± 95.926 | 0.957 ± 0.010 | 20 |
+| geant | CongestAgent | 166.364 ± 17.413 | 42.744 ± 2.498 | 0.294 ± 0.020 | 377.010 ± 50.219 | 0.947 ± 0.011 | 20 |
+| jitter20 | B1 | 147.939 ± 23.077 | 36.898 ± 3.713 | 0.000 ± 0.000 | 0.000 ± 0.000 | 0.962 ± 0.015 | 20 |
+| jitter20 | B2 | 120.404 ± 13.071 | 32.497 ± 2.740 | 0.237 ± 0.018 | 845.220 ± 188.204 | 0.956 ± 0.015 | 20 |
+| jitter20 | B3 | 114.816 ± 12.737 | 32.968 ± 2.828 | 0.222 ± 0.017 | 680.760 ± 139.567 | 0.956 ± 0.015 | 20 |
+| jitter20 | CongestAgent | 177.529 ± 19.731 | 32.609 ± 2.772 | 0.234 ± 0.022 | 403.260 ± 82.195 | 0.945 ± 0.017 | 20 |
+| jitter40 | B1 | 147.883 ± 23.045 | 36.681 ± 3.687 | 0.000 ± 0.000 | 0.000 ± 0.000 | 0.961 ± 0.015 | 20 |
+| jitter40 | B2 | 121.171 ± 13.188 | 32.315 ± 2.716 | 0.241 ± 0.019 | 845.940 ± 175.593 | 0.954 ± 0.015 | 20 |
+| jitter40 | B3 | 114.874 ± 12.344 | 32.824 ± 2.836 | 0.225 ± 0.020 | 679.920 ± 137.579 | 0.955 ± 0.015 | 20 |
+| jitter40 | CongestAgent | 174.382 ± 18.674 | 32.524 ± 2.800 | 0.233 ± 0.023 | 397.800 ± 81.946 | 0.944 ± 0.016 | 20 |
+| shift40 | B1 | 168.875 ± 21.050 | 37.115 ± 3.740 | 0.000 ± 0.000 | 0.000 ± 0.000 | 0.962 ± 0.015 | 20 |
+| shift40 | B2 | 140.542 ± 13.060 | 32.419 ± 2.696 | 0.254 ± 0.018 | 928.080 ± 188.143 | 0.956 ± 0.015 | 20 |
+| shift40 | B3 | 132.372 ± 13.358 | 33.067 ± 2.855 | 0.238 ± 0.021 | 726.780 ± 141.297 | 0.958 ± 0.015 | 20 |
+| shift40 | CongestAgent | 196.379 ± 21.280 | 32.905 ± 2.773 | 0.235 ± 0.025 | 394.320 ± 75.046 | 0.946 ± 0.017 | 20 |
+| shift80 | B1 | 194.824 ± 19.369 | 37.115 ± 3.740 | 0.000 ± 0.000 | 0.000 ± 0.000 | 0.962 ± 0.015 | 20 |
+| shift80 | B2 | 165.329 ± 15.709 | 32.210 ± 2.668 | 0.271 ± 0.023 | 1038.060 ± 204.555 | 0.956 ± 0.015 | 20 |
+| shift80 | B3 | 156.348 ± 14.251 | 32.968 ± 2.870 | 0.253 ± 0.020 | 784.500 ± 141.290 | 0.958 ± 0.015 | 20 |
+| shift80 | CongestAgent | 226.253 ± 18.570 | 32.926 ± 2.759 | 0.228 ± 0.020 | 385.620 ± 79.223 | 0.946 ± 0.017 | 20 |
+
+
+Cases where CongestAgent is WORSE than B1 (shortest path) on p95 delay:
+
+| variation | B1 | B2 | B3 | CongestAgent |
+|---|---|---|---|---|
+| burst | 184.5 | 156.1 | 148.9 | 206.1 |
+| cubic | 141.9 | 116.7 | 110.9 | 167.3 |
+| failure | 148.7 | 122.7 | 116.8 | 175.6 |
+| geant | 154.9 | 129 | 125.4 | 166.4 |
+| jitter20 | 147.9 | 120.4 | 114.8 | 177.5 |
+| jitter40 | 147.9 | 121.2 | 114.9 | 174.4 |
+| shift40 | 168.9 | 140.5 | 132.4 | 196.4 |
+| shift80 | 194.8 | 165.3 | 156.3 | 226.3 |
+
+
+## Ablation (6 configs x 5 seeds; mean ± 95% CI)
+
+| method | delay_mean_ms | delay_p95_ms | loss_pct | throughput_mbps | jain | false_reroute_rate | route_changes_per_min | decision_latency_ms | msgs_per_s_central | msgs_per_s_max_regional | cpu_ms_per_sim_s | n |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| A1 | 34.101 ± 3.220 | 138.229 ± 16.450 | 10.833 ± 2.079 | 30.115 ± 2.193 | 0.952 ± 0.012 | 0.201 ± 0.056 | 544.820 ± 28.051 | 2.707 ± 0.006 | 28.896 ± 1.215 | 75.938 ± 0.630 | 11.513 ± 0.061 | 30 |
+| A2 | 31.918 ± 3.321 | 128.136 ± 20.500 | 10.728 ± 2.184 | 30.827 ± 2.168 | 0.951 ± 0.012 | 0.173 ± 0.049 | 255.080 ± 43.107 | 2.706 ± 0.006 | 17.812 ± 1.724 | 71.794 ± 0.721 | 11.503 ± 0.062 | 30 |
+| A3 | 31.047 ± 3.492 | 124.944 ± 21.264 | 11.112 ± 2.333 | 30.608 ± 2.114 | 0.950 ± 0.013 | 0.164 ± 0.047 | 282.260 ± 51.129 | 2.706 ± 0.007 | 22.621 ± 2.501 | 73.508 ± 0.980 | 11.502 ± 0.064 | 30 |
+| A4 | 27.926 ± 2.144 | 99.470 ± 12.575 | 9.476 ± 1.930 | 31.186 ± 2.240 | 0.961 ± 0.011 | 0.126 ± 0.035 | 306.460 ± 63.390 | 3.136 ± 0.031 | 119.169 ± 10.774 | 115.769 ± 3.945 | 17.729 ± 0.376 | 30 |
+| A5 | 33.540 ± 3.354 | 138.462 ± 20.221 | 11.233 ± 2.271 | 30.464 ± 2.116 | 0.951 ± 0.012 | 0.169 ± 0.047 | 294.780 ± 47.517 | 2.717 ± 0.006 | 236.097 ± 1.822 | 236.097 ± 1.822 | 10.868 ± 0.024 | 30 |
+| CongestAgent | 33.540 ± 3.354 | 138.462 ± 20.221 | 11.233 ± 2.271 | 30.464 ± 2.116 | 0.951 ± 0.012 | 0.169 ± 0.047 | 294.780 ± 47.517 | 2.702 ± 0.005 | 18.097 ± 1.822 | 71.621 ± 0.634 | 11.456 ± 0.047 | 30 |
+
+| other | metric | ref_mean | other_mean | test | p_holm | effect | significant_0.05 |
+|---|---|---|---|---|---|---|---|
+| A1 | delay_mean_ms | 33.54 | 34.1 | paired t | 1 | -0.2606 | False |
+| A1 | delay_p95_ms | 138.5 | 138.2 | paired t | 1 | 0.01085 | False |
+| A1 | loss_pct | 11.23 | 10.83 | paired t | 0.1992 | 0.5261 | False |
+| A1 | throughput_mbps | 30.46 | 30.11 | paired t | 0.006483 | 0.7725 | True |
+| A1 | jain | 0.9509 | 0.9523 | paired t | 0.333 | -0.4844 | False |
+| A1 | false_reroute_rate | 0.1688 | 0.2006 | Wilcoxon | 6.866e-05 | -1 | True |
+| A1 | route_changes_per_min | 294.8 | 544.8 | paired t | 5.007e-17 | -3.729 | True |
+| A1 | decision_latency_ms | 2.702 | 2.707 | paired t | 1 | -0.2492 | False |
+| A1 | msgs_per_s_central | 18.1 | 28.9 | paired t | 8.009e-21 | -5.12 | True |
+| A1 | msgs_per_s_max_regional | 71.62 | 75.94 | paired t | 1.309e-15 | -3.302 | True |
+| A1 | cpu_ms_per_sim_s | 11.46 | 11.51 | paired t | 1 | -0.2488 | False |
+| A2 | delay_mean_ms | 33.54 | 31.92 | Wilcoxon | 0.0003501 | 0.8409 | True |
+| A2 | delay_p95_ms | 138.5 | 128.1 | paired t | 0.04252 | 0.6393 | True |
+| A2 | loss_pct | 11.23 | 10.73 | Wilcoxon | 0.0003501 | 0.8409 | True |
+| A2 | throughput_mbps | 30.46 | 30.83 | Wilcoxon | 0.0002421 | -0.8538 | True |
+| A2 | jain | 0.9509 | 0.9511 | paired t | 1 | -0.1185 | False |
+| A2 | false_reroute_rate | 0.1688 | 0.1735 | Wilcoxon | 1 | -0.2952 | False |
+| A2 | route_changes_per_min | 294.8 | 255.1 | paired t | 3.262e-05 | 1.137 | True |
+| A2 | decision_latency_ms | 2.702 | 2.706 | paired t | 1 | -0.1735 | False |
+| A2 | msgs_per_s_central | 18.1 | 17.81 | paired t | 1 | 0.2434 | False |
+| A2 | msgs_per_s_max_regional | 71.62 | 71.79 | Wilcoxon | 1 | -0.1591 | False |
+| A2 | cpu_ms_per_sim_s | 11.46 | 11.5 | Wilcoxon | 1 | -0.1613 | False |
+| A3 | delay_mean_ms | 33.54 | 31.05 | paired t | 2.25e-05 | 1.163 | True |
+| A3 | delay_p95_ms | 138.5 | 124.9 | Wilcoxon | 0.006483 | 0.7333 | True |
+| A3 | loss_pct | 11.23 | 11.11 | paired t | 1 | 0.1453 | False |
+| A3 | throughput_mbps | 30.46 | 30.61 | paired t | 1 | -0.3141 | False |
+| A3 | jain | 0.9509 | 0.9505 | paired t | 1 | 0.1834 | False |
+| A3 | false_reroute_rate | 0.1688 | 0.1642 | Wilcoxon | 1 | 0.2 | False |
+| A3 | route_changes_per_min | 294.8 | 282.3 | paired t | 0.9224 | 0.3994 | False |
+| A3 | decision_latency_ms | 2.702 | 2.706 | paired t | 1 | -0.1922 | False |
+| A3 | msgs_per_s_central | 18.1 | 22.62 | paired t | 5.128e-10 | -1.983 | True |
+| A3 | msgs_per_s_max_regional | 71.62 | 73.51 | Wilcoxon | 9.313e-08 | -1 | True |
+| A3 | cpu_ms_per_sim_s | 11.46 | 11.5 | paired t | 1 | -0.1968 | False |
+| A4 | delay_mean_ms | 33.54 | 27.93 | paired t | 1.089e-07 | 1.541 | True |
+| A4 | delay_p95_ms | 138.5 | 99.47 | Wilcoxon | 9.313e-08 | 1 | True |
+| A4 | loss_pct | 11.23 | 9.476 | Wilcoxon | 9.313e-08 | 1 | True |
+| A4 | throughput_mbps | 30.46 | 31.19 | paired t | 3.137e-06 | -1.299 | True |
+| A4 | jain | 0.9509 | 0.9607 | paired t | 7.489e-09 | -1.762 | True |
+| A4 | false_reroute_rate | 0.1688 | 0.1265 | Wilcoxon | 0.0003242 | 0.9714 | True |
+| A4 | route_changes_per_min | 294.8 | 306.5 | paired t | 1 | -0.1995 | False |
+| A4 | decision_latency_ms | 2.702 | 3.136 | Wilcoxon | 9.313e-08 | -1 | True |
+| A4 | msgs_per_s_central | 18.1 | 119.2 | Wilcoxon | 9.313e-08 | -1 | True |
+| A4 | msgs_per_s_max_regional | 71.62 | 115.8 | Wilcoxon | 9.313e-08 | -1 | True |
+| A4 | cpu_ms_per_sim_s | 11.46 | 17.73 | Wilcoxon | 9.313e-08 | -1 | True |
+| A5 | delay_mean_ms | 33.54 | 33.54 | none | 1 | 0 | False |
+| A5 | delay_p95_ms | 138.5 | 138.5 | none | 1 | 0 | False |
+| A5 | loss_pct | 11.23 | 11.23 | none | 1 | 0 | False |
+| A5 | throughput_mbps | 30.46 | 30.46 | none | 1 | 0 | False |
+| A5 | jain | 0.9509 | 0.9509 | none | 1 | 0 | False |
+| A5 | false_reroute_rate | 0.1688 | 0.1688 | none | 1 | 0 | False |
+| A5 | route_changes_per_min | 294.8 | 294.8 | none | 1 | 0 | False |
+| A5 | decision_latency_ms | 2.702 | 2.717 | paired t | 0.008336 | -0.7525 | True |
+| A5 | msgs_per_s_central | 18.1 | 236.1 | Wilcoxon | 3.382e-05 | -1 | True |
+| A5 | msgs_per_s_max_regional | 71.62 | 236.1 | Wilcoxon | 9.313e-08 | -1 | True |
+| A5 | cpu_ms_per_sim_s | 11.46 | 10.87 | Wilcoxon | 9.313e-08 | 1 | True |
+
+
+## Delayed neighbour summaries (0 / 1 / 2 intervals = 0 / 0.25 / 0.5 s)
+
+| tag | delay_mean_ms | delay_p95_ms | loss_pct | throughput_mbps | jain | false_reroute_rate | route_changes_per_min | n |
+|---|---|---|---|---|---|---|---|---|
+| summary_delay0 | 33.540 ± 3.354 | 138.462 ± 20.221 | 11.233 ± 2.271 | 30.464 ± 2.116 | 0.951 ± 0.012 | 0.169 ± 0.047 | 294.780 ± 47.517 | 30 |
+| summary_delay1 | 33.472 ± 3.245 | 138.881 ± 18.602 | 11.290 ± 2.283 | 30.403 ± 2.093 | 0.951 ± 0.012 | 0.172 ± 0.048 | 288.120 ± 47.987 | 30 |
+| summary_delay2 | 32.702 ± 3.239 | 129.555 ± 16.736 | 11.054 ± 2.205 | 30.480 ± 2.096 | 0.951 ± 0.012 | 0.172 ± 0.049 | 284.220 ± 47.797 | 30 |
+
+
+## Failure analysis: perception output vs true label, by noise type (CongestAgent)
+
+| noise | false_cong_on_degradation_% | missed_congestion_% |
+|---|---|---|
+| jitter10 | 0.2478 | 0.1604 |
+| jitter5 | 0.2479 | 0.1612 |
+| loss0.5 | 0.2479 | 0.1653 |
+| loss1 | 0.2477 | 0.1662 |
+| loss2 | 0.2477 | 0.1706 |
+| none | nan | 0.05376 |
+
+
+report saved: /content/drive/MyDrive/CongestAgent/cg_out/results/report.md
